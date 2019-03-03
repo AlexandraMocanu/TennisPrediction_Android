@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/activity_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.alexandra.winnerprediction.customviews.MontserratTextView
+        android:id="@+id/intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Welcome!"
+        android:textAlignment="center"
+        android:textColor="@color/secondaryDarkColor"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <com.alexandra.winnerprediction.customviews.MontserratTextView
+        android:id="@+id/intro2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="16dp"
+        android:text="Please choose what kind of match you want to predict"
+        android:textAlignment="center"
+        android:textColor="@color/secondaryDarkColor"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/wta_match"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="125dp"
+        android:background="@color/backgroundLight"
+        android:gravity="center"
+        android:text="WTA Match"
+        android:textAlignment="center"
+        android:textColor="@color/backgroundLight"
+        app:backgroundTint="@color/secondaryDarkColor" />
+
+    <Button
+        android:id="@+id/atp_match"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginEnd="125dp"
+        android:background="@color/backgroundLight"
+        android:gravity="center"
+        android:text="ATP Match"
+        android:textAlignment="center"
+        android:textColor="@color/backgroundLight"
+        app:backgroundTint="@color/secondaryDarkColor" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

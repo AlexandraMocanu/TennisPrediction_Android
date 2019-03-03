@@ -1,0 +1,192 @@
+<resources>
+    <string name="app_name">Winner Prediction</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="tourney_wta_array">
+        <item>Don\'t care</item>
+        <item>$125K Series inK</item>
+        <item>s-Hertogenbosch</item>
+        <item>Acapulco</item>
+        <item>Aegon Open Nottingham</item>
+        <item>Amelia Island</item>
+        <item>Anning</item>
+        <item>Antwerp</item>
+        <item>Auckland</item>
+        <item>Australia Circuit</item>
+        <item>Australian Open</item>
+        <item>Bad Gastein</item>
+        <item>Baku</item>
+        <item>Bali</item>
+        <item>Bangalore</item>
+        <item>Bangkok</item>
+        <item>Barcelona</item>
+        <item>Bastad</item>
+        <item>Beijing</item>
+        <item>Berlin</item>
+        <item>Biel</item>
+        <item>Birmingham</item>
+        <item>Bogota</item>
+        <item>Bol</item>
+        <item>Brisbane</item>
+        <item>Brussels</item>
+        <item>Bucharest</item>
+        <item>Budapest</item>
+        <item>Cali Challenger</item>
+        <item>Calvia</item>
+        <item>Canadian Open</item>
+        <item>Canberra</item>
+        <item>Carlsbad</item>
+        <item>Casablanca</item>
+        <item>Charleston</item>
+        <item>Chicago</item>
+        <item>Cincinnati</item>
+        <item>Citi Open</item>
+        <item>Copenhagen</item>
+        <item>Dalian</item>
+        <item>Doha</item>
+        <item>Dubai</item>
+        <item>Eastbourne</item>
+        <item>Estoril</item>
+        <item>Fed Cup</item>
+        <item>Fes</item>
+        <item>Filderstadt</item>
+        <item>Florianopolis</item>
+        <item>Forest Hills</item>
+        <item>French Open</item>
+        <item>Gold Coast</item>
+        <item>Gstaad</item>
+        <item>Guangzhou</item>
+        <item>Hasselt</item>
+        <item>Helsinki</item>
+        <item>Hiroshima</item>
+        <item>Hobart</item>
+        <item>Hong Kong</item>
+        <item>Honolulu</item>
+        <item>Houston</item>
+        <item>Hua Hin</item>
+        <item>Hyderabad</item>
+        <item>Indian Wells</item>
+        <item>Istanbul</item>
+        <item>Kaohsiung</item>
+        <item>Katowice</item>
+        <item>Katowice Open</item>
+        <item>Kolkata</item>
+        <item>Kuala Lumpur</item>
+        <item>Leipzig</item>
+        <item>Limoges</item>
+        <item>Linz</item>
+        <item>Los Angeles</item>
+        <item>Lugano</item>
+        <item>Luxembourg</item>
+        <item>Madrid</item>
+        <item>Mallorca</item>
+        <item>Marbella</item>
+        <item>Marrakech</item>
+        <item>Memphis</item>
+        <item>Mercury Insurance Open</item>
+        <item>Mexico Circuit</item>
+        <item>Miami</item>
+        <item>Modena</item>
+        <item>Monterrey</item>
+        <item>Montreal</item>
+        <item>Moscow</item>
+        <item>Mumbai</item>
+        <item>Nanchang</item>
+        <item>New Haven</item>
+        <item>Newport Beach</item>
+        <item>Nottingham</item>
+        <item>Nuremberg</item>
+        <item>Oeiras</item>
+        <item>Olympics</item>
+        <item>Osaka</item>
+        <item>Palermo</item>
+        <item>Pattaya</item>
+        <item>Philadelphia</item>
+        <item>Ponte Vedra Beach</item>
+        <item>Portoroz</item>
+        <item>Prague</item>
+        <item>Pune Challenger</item>
+        <item>Quebec City</item>
+        <item>Rabat</item>
+        <item>Rio de Janeiro</item>
+        <item>Roland Garros</item>
+        <item>Rome</item>
+        <item>San Antonio</item>
+        <item>San Diego</item>
+        <item>San Jose</item>
+        <item>Sarasota</item>
+        <item>Scottsdale</item>
+        <item>Seoul</item>
+        <item>Shanghai</item>
+        <item>Shenzhen</item>
+        <item>Singapore</item>
+        <item>Sopot</item>
+        <item>St. Petersburg</item>
+        <item>Stanford</item>
+        <item>Stockholm</item>
+        <item>Strasbourg</item>
+        <item>Stuttgart</item>
+        <item>Sydney</item>
+        <item>Taipei</item>
+        <item>Tashkent</item>
+        <item>Texas Tennis OpenDallas</item>
+        <item>Tianjin</item>
+        <item>Tokyo</item>
+        <item>Toronto</item>
+        <item>US Open</item>
+        <item>Vancouver</item>
+        <item>Vienna</item>
+        <item>Vina Del Mar</item>
+        <item>WTA Finals</item>
+        <item>Warsaw</item>
+        <item>Washington</item>
+        <item>Wimbledon</item>
+        <item>Wuhan</item>
+        <item>Zhengzhou</item>
+        <item>Zhuhai</item>
+        <item>Zurich</item>
+    </string-array>
+
+    <string-array name="hand">
+        <item>Don\'t know</item>
+        <item>Left</item>
+        <item>Right</item>
+        <item>Both</item>
+    </string-array>
+
+    <string-array name="draw_size">
+        <item>Don\'t know</item>
+        <item>draw_size_4</item>
+        <item>draw_size_8</item>
+        <item>draw_size_12</item>
+        <item>draw_size_15</item>
+        <item>draw_size_16</item>
+        <item>draw_size_28</item>
+        <item>draw_size_30</item>
+        <item>draw_size_31</item>
+        <item>draw_size_32</item>
+        <item>draw_size_48</item>
+        <item>draw_size_54</item>
+        <item>draw_size_55</item>
+        <item>draw_size_56</item>
+        <item>draw_size_60</item>
+        <item>draw_size_64</item>
+        <item>draw_size_96</item>
+        <item>draw_size_128</item>
+    </string-array>
+
+    <string-array name="surface">
+        <item>Don\'t know</item>
+        <item>Carpet</item>
+        <item>Clay</item>
+        <item>Grass</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string-array name="best_of">
+        <item>Don\'t know</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+
+</resources>

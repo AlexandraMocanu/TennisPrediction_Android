@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:isScrollContainer="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideInset"
+    android:scrollbars="vertical"
+    android:verticalScrollbarPosition="right"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.ATPPrediction">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/activity_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="55dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fadeScrollbars="true"
+                android:isScrollContainer="true"
+                android:overScrollMode="always"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                android:verticalScrollbarPosition="right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/atp_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/icon_atp_round" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 1"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/atp_pic" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="50dp"
+                    android:text="Player 2"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/player1" />
+
+                <EditText
+                    android:id="@+id/player1_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Name"
+                    app:layout_constraintBottom_toBottomOf="@+id/player1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player1"
+                    app:layout_constraintTop_toTopOf="@+id/player1" />
+
+                <EditText
+                    android:id="@+id/player2_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Name"
+                    app:layout_constraintBottom_toBottomOf="@+id/player2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player2"
+                    app:layout_constraintTop_toTopOf="@+id/player2" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/tournament"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Tournament"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player2" />
+
+                <Spinner
+                    android:id="@+id/tourney"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:tag="Tournament"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tournament" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/Surface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Surface"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tourney" />
+
+                <Spinner
+                    android:id="@+id/surface_s"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@+id/Surface"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/Surface" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/draw_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Draw size"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Surface" />
+
+                <Spinner
+                    android:id="@+id/draw_size_s"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@+id/draw_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/draw_size" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/best_of"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Best of"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/draw_size" />
+
+                <Spinner
+                    android:id="@+id/best_of_s"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@+id/best_of"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/best_of" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player1_hand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 1 Hand"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/best_of_s" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player2_hand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 2 Hand"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player1_hand" />
+
+                <Spinner
+                    android:id="@+id/player1_hand_s"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/player1_hand"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player1_hand"
+                    app:layout_constraintTop_toTopOf="@+id/player1_hand" />
+
+                <Spinner
+                    android:id="@+id/player2_hand_s"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/player2_hand"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player2_hand"
+                    app:layout_constraintTop_toTopOf="@+id/player2_hand" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player1_rank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 1 Rank"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player2_hand" />
+
+                <EditText
+                    android:id="@+id/player1_rank_r"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="Rank"
+                    android:textColor="@color/secondaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/player1_rank"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player1_rank"
+                    app:layout_constraintTop_toTopOf="@+id/player1_rank" />
+
+                <EditText
+                    android:id="@+id/player2_rank_r"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="Rank"
+                    android:textColor="@color/secondaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/player2_rank"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player2_rank"
+                    app:layout_constraintTop_toTopOf="@+id/player2_rank" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player2_rank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 2 Rank"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player1_rank" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player1_seed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 1 Seed"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player2_rank" />
+
+                <EditText
+                    android:id="@+id/player1_seed_s"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="Seed"
+                    android:textColor="@color/secondaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/player1_seed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player1_seed"
+                    app:layout_constraintTop_toTopOf="@+id/player1_seed" />
+
+                <EditText
+                    android:id="@+id/player2_seed_s"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="Seed"
+                    android:textColor="@color/secondaryTextColor"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/player2_seed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/player2_seed"
+                    app:layout_constraintTop_toTopOf="@+id/player2_seed" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/player2_seed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Player 2 Seed"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player1_seed" />
+
+                <com.alexandra.winnerprediction.customviews.MontserratTextView
+                    android:id="@+id/note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Note: The players height and rank are determined from our database. If any of the information except the players is not provided then the prediction will be based solely on the players and might not be as accurate."
+                    android:textAlignment="center"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/player2_seed" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/predict"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/primaryColor"
+                    android:gravity="center_horizontal"
+                    android:text="Predict!"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/backgroundLight"
+                    app:backgroundTint="@color/secondaryDarkColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/note" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

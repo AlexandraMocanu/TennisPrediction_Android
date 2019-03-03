@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.alexandra.winnerprediction.activities.MainActivity">
+
+    <item
+        android:id="@+id/wta"
+        android:orderInCategory="100"
+        android:title="WTA"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/tennisball_grey"/>
+    <item
+        android:id="@+id/atp"
+        android:orderInCategory="100"
+        android:title="ATP"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/tennisball_grey"/>
+</menu>
