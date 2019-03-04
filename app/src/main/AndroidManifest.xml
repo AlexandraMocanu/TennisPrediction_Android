@@ -22,6 +22,8 @@
 
         <activity android:name=".activities.WTAPrediction" />
         <activity android:name=".activities.ATPPrediction" />
+        <activity android:name=".activities.WTAResult" />
+        <activity android:name=".activities.ATPResult" />
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.alexandra.winnerprediction.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -96,6 +97,8 @@ public class WTAPrediction extends BaseActivity {
             @Override
             public void onClick(View v) {
                 call_python();
+                Intent newIntent = new Intent(getBaseContext(), WTAResult.class);
+                startActivity(newIntent);
             }
         });
     }

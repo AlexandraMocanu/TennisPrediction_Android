@@ -1,5 +1,6 @@
 package com.alexandra.winnerprediction.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -95,6 +96,8 @@ public class ATPPrediction extends BaseActivity{
             @Override
             public void onClick(View v) {
                 call_python();
+                Intent newIntent = new Intent(getBaseContext(), ATPResult.class);
+                startActivity(newIntent);
             }
         });
     }
