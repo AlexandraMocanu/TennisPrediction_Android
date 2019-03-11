@@ -16,6 +16,16 @@ import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 public class WTAPrediction extends BaseActivity {
 
     Spinner tournament;
@@ -48,9 +58,10 @@ public class WTAPrediction extends BaseActivity {
         mMyIcon = (ImageView) findViewById(R.id.iconTop);
         mMyIcon.setImageDrawable(getResources().getDrawable(getResourceID("icon_wta_round", "drawable", getBaseContext())));
 
+        List<String> tourney_list = get_tournaments();
         tournament = (Spinner) findViewById(R.id.tourney);
-        ArrayAdapter<CharSequence> tournament_adapter = ArrayAdapter.createFromResource(this,
-                R.array.tourney_wta_array, R.layout.spinner_item);
+        ArrayAdapter<String> tournament_adapter = new ArrayAdapter<String>(this,
+                R.layout.spinner_item, tourney_list);
         tournament_adapter.setDropDownViewResource(R.layout.spinner_item);
         tournament.setAdapter(tournament_adapter);
 
@@ -103,6 +114,41 @@ public class WTAPrediction extends BaseActivity {
         });
     }
 
+    private List<String> get_tournaments(){
+        ArrayList<String> tourneys = new ArrayList<>();
+        String json = null;
+
+        try {
+            InputStream is = getAssets().open("tourneys_wta.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+
+        try {
+            JSONArray tourneys_j = new JSONArray(json);
+            for (int i = 0; i < tourneys_j.length(); i++){
+                JSONObject t = tourneys_j.getJSONObject(i);
+                tourneys.add(t.getString("tourney_name"));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        tourneys.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+        return  tourneys;
+    }
+
     private void call_python(){
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this.getBaseContext()));
@@ -122,7 +168,7 @@ public class WTAPrediction extends BaseActivity {
         String p2_seed = player2_seed.getText().toString();
 
         Python python_instance = Python.getInstance();
-        PyObject test_module = python_instance.getModule("test");
+        PyObject test_module = python_instance.getModule("predict_p/predict");
         PyObject set_features = test_module.callAttr("set_features",
                                                             n1, n2,
                                                             tour, draw, surf, best,

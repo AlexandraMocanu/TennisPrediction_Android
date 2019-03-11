@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.alexandra.winnerprediction"
-        minSdkVersion 18
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -14,7 +14,18 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         python {
-            buildPython "C:/Users/Alexandra/Anaconda3/envs/SE_Project/python.exe"
+            buildPython "C:\\Users\\amocanu\\AppData\\Local\\Continuum\\anaconda3\\envs\\keras\\python.exe"
+
+            extractPackages "predict_p", "models"
+
+            pip {
+                install "keras"
+                install "tensorflow"
+                install "pandas"
+                install "numpy"
+                install "chaquopy-hdf5"
+                install "h5py"
+            }
         }
     }
     buildTypes {

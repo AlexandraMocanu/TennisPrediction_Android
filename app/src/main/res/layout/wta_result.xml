@@ -38,7 +38,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:fadeScrollbars="true"
                 android:isScrollContainer="true"
                 android:overScrollMode="always"
@@ -311,6 +311,13 @@
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/tennisball_blue_foreground" />
         </LinearLayout>
     </ScrollView>
 

@@ -94,7 +94,7 @@ public class WTAResult extends BaseActivity {
         }
 
         Python python_instance = Python.getInstance();
-        PyObject test_module = python_instance.getModule("test");
+        PyObject test_module = python_instance.getModule("predict_p/predict");
         PyObject get_labels = test_module.callAttr("get_labels");
 
 //        player1_name, player2_name, winner, score, time, player1_ace, player1_df, player1_svpt, \

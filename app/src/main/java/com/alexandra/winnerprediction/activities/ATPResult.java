@@ -93,16 +93,22 @@ public class ATPResult extends BaseActivity {
         }
 
         Python python_instance = Python.getInstance();
-        PyObject test_module = python_instance.getModule("test");
+        PyObject test_module = python_instance.getModule("predict_p/predict");
         PyObject get_labels = test_module.callAttr("get_labels");
 
-//        player1_name, player2_name, winner, score, time, player1_ace, player1_df, player1_svpt, \
+//        player1_name, player2_name, winner, loser, score, time, player1_ace, player1_df, player1_svpt, \
 //        player1_1stIn, player1_1stWon, player1_2ndWon, player1_SvGms, player1_bpSaved, \
 //        player1_bpFaced, player2_ace, player2_df, player2_svpt, player2_1stIn, player2_1stWon, \
 //        player2_2ndWon, player2_SvGms, player2_bpSaved, player2_bpFaced
 
-        player1_name.setText(get_labels.asList().get(0).toString());
-        player2_name.setText(get_labels.asList().get(1).toString());
+        if (get_labels.asList().get(0).toString().compareTo(get_labels.asList().get(2).toString()) == 0){
+            player1_name.setText(get_labels.asList().get(0).toString() + " (winner)");
+            player2_name.setText(get_labels.asList().get(1).toString() + " (loser)");
+        }else{
+            player1_name.setText(get_labels.asList().get(0).toString() + " (loser)");
+            player2_name.setText(get_labels.asList().get(1).toString() + " (winner)");
+        }
+
         winner.setText(get_labels.asList().get(2).toString());
         score.setText(get_labels.asList().get(3).toString());
         time.setText(get_labels.asList().get(4).toString());

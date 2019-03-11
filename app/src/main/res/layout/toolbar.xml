@@ -22,7 +22,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/backgroundLight"
+            android:background="@color/primaryColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,12 +49,12 @@
             android:text="Title"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
-            android:textColor="@color/secondaryDarkColor"
+            android:textColor="@color/primaryTextColor"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/back_button" />
+            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
