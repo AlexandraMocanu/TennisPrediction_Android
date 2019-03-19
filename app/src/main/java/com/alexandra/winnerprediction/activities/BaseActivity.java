@@ -6,11 +6,16 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
+import fr.castorflex.android.circularprogressbar.CircularProgressDrawable;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.alexandra.winnerprediction.R;
 import com.alexandra.winnerprediction.customviews.MontserratTextView;
@@ -21,6 +26,8 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 abstract public class BaseActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
+
+    ProgressBar progressBar;
 
     protected BottomNavigationView bottomNavigationView;
     protected ImageView mMyIcon;
@@ -34,6 +41,7 @@ abstract public class BaseActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_base);
 
         setListeners();
+
     }
 
     protected void setListeners() {
@@ -54,6 +62,12 @@ abstract public class BaseActivity extends AppCompatActivity implements
         });
 
         mActivity = (MontserratTextView) findViewById(R.id.titleAct);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setEnabled(true);
+        progressBar.setAlpha(1);
+        progressBar.setActivated(true);
+        progressBar.setVisibility(View.GONE);
 
     }
 
@@ -103,5 +117,19 @@ abstract public class BaseActivity extends AppCompatActivity implements
         } else {
             return ResourceID;
         }
+    }
+
+    protected void startProgressBar(){
+        progressBar.setEnabled(true);
+        progressBar.setAlpha(1);
+        progressBar.setActivated(true);
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    protected void stopProgressBar(){
+        progressBar.setActivated(false);
+        progressBar.setAlpha(0);
+        progressBar.setEnabled(false);
+        progressBar.setVisibility(View.GONE);
     }
 }

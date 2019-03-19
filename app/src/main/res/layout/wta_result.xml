@@ -4,11 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:isScrollContainer="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true"
-    android:scrollbarStyle="insideInset"
-    android:scrollbars="vertical"
-    android:verticalScrollbarPosition="right"
+    android:isScrollContainer="false"
+    android:scrollbarAlwaysDrawVerticalTrack="false"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.WTAResult">
 
@@ -19,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"  />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,8 +29,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -103,8 +100,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    android:text="Winner"
                     android:textColor="@color/secondaryDarkColor"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/player1_name" />
@@ -116,8 +114,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    android:text="Score: "
                     android:textColor="@color/secondaryDarkColor"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/winner" />
@@ -129,8 +128,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="TextView"
+                    android:text="Match Duration"
                     android:textColor="@color/secondaryDarkColor"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/score" />
@@ -139,9 +139,9 @@
                     android:id="@+id/stats"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="48dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -155,7 +155,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:padding="4dp">
+                        android:paddingStart="4dp">
 
                         <TextView
                             android:id="@+id/p1_ace"
@@ -226,12 +226,111 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/stats_names"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/p2_ace_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Aces"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_df_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Double faults"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_svpt_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Saved pts"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_1stIn_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="1st Srv In %"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_1stWon_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="1st Srv Won %"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_2ndWon_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="2nd Srv Won %"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_SvGms_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Saved games"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_bpSaved_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Break Pts Saved"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2_bpFaced_stat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Break Pts Faced"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryDarkColor"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/player2_stats"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:padding="4dp">
+                        android:paddingEnd="4dp">
 
                         <TextView
                             android:id="@+id/p2_ace"
@@ -314,10 +413,12 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/tennisball_blue_foreground" />
+                android:padding="25dp"
+                app:srcCompat="@drawable/icon_wta_round" />
         </LinearLayout>
     </ScrollView>
 

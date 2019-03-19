@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import fr.castorflex.android.circularprogressbar.CircularProgressBar;
+
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,11 +23,6 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 public class MainActivity extends BaseActivity {
 
-    EditText name;
-    EditText surname;
-    TextView output;
-    Button predict;
-
     Button wta_match;
     Button atp_match;
 
@@ -33,6 +30,10 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Python python_instance = Python.getInstance();
+        PyObject test_module = python_instance.getModule("predict_p/setup");
+        PyObject set_features = test_module.callAttr("setup");
 
         setListeners();
         mActivity.setText(getActivityName());

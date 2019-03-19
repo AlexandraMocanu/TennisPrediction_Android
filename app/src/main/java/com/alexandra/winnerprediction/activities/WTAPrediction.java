@@ -2,6 +2,8 @@ package com.alexandra.winnerprediction.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class WTAPrediction extends BaseActivity {
 
@@ -107,6 +111,8 @@ public class WTAPrediction extends BaseActivity {
         predict.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                predict.setPressed(true);
+                setView();
                 call_python();
                 Intent newIntent = new Intent(getBaseContext(), WTAResult.class);
                 startActivity(newIntent);
@@ -169,10 +175,18 @@ public class WTAPrediction extends BaseActivity {
 
         Python python_instance = Python.getInstance();
         PyObject test_module = python_instance.getModule("predict_p/predict");
-        PyObject set_features = test_module.callAttr("set_features",
+        PyObject set_features = test_module.callAttr("set_features", "WTA",
                                                             n1, n2,
                                                             tour, draw, surf, best,
                                                             p1_hand, p2_hand, p1_rank, p2_rank, p1_seed, p2_seed);
+    }
+
+    private void setView(){
+        startProgressBar();
+        ConstraintLayout layout = findViewById(R.id.layout_wta);
+        Drawable forg = new ColorDrawable(getResources().getColor(R.color.backgroundLight));
+        forg.setAlpha(175);
+        layout.setForeground(forg);
     }
 
     @Override

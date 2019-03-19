@@ -86,16 +86,15 @@ public class WTAResult extends BaseActivity {
 
         getResults();
 
+        stopProgressBar();
+
     }
 
     private void getResults() {
-        if (! Python.isStarted()) {
-            Python.start(new AndroidPlatform(this.getBaseContext()));
-        }
 
         Python python_instance = Python.getInstance();
         PyObject test_module = python_instance.getModule("predict_p/predict");
-        PyObject get_labels = test_module.callAttr("get_labels");
+        PyObject get_labels = test_module.callAttr("get_labels_wta");
 
 //        player1_name, player2_name, winner, score, time, player1_ace, player1_df, player1_svpt, \
 //        player1_1stIn, player1_1stWon, player1_2ndWon, player1_SvGms, player1_bpSaved, \

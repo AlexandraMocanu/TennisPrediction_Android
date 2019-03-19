@@ -1,12 +1,15 @@
 package com.alexandra.winnerprediction.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import com.alexandra.winnerprediction.R;
@@ -24,6 +27,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ATPPrediction extends BaseActivity{
 
@@ -106,7 +111,12 @@ public class ATPPrediction extends BaseActivity{
         predict.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                predict.setPressed(true);
+
+                setView();
+
                 call_python();
+
                 Intent newIntent = new Intent(getBaseContext(), ATPResult.class);
                 startActivity(newIntent);
             }
@@ -149,9 +159,6 @@ public class ATPPrediction extends BaseActivity{
     }
 
     private void call_python(){
-        if (! Python.isStarted()) {
-            Python.start(new AndroidPlatform(this.getBaseContext()));
-        }
 
         String n1 = player1_name.getText().toString();
         String n2 = player2_name.getText().toString();
@@ -168,10 +175,18 @@ public class ATPPrediction extends BaseActivity{
 
         Python python_instance = Python.getInstance();
         PyObject test_module = python_instance.getModule("predict_p/predict");
-        PyObject set_features = test_module.callAttr("set_features",
+        PyObject set_features = test_module.callAttr("set_features", "ATP",
                 n1, n2,
                 tour, draw, surf, best,
                 p1_hand, p2_hand, p1_rank, p2_rank, p1_seed, p2_seed);
+    }
+
+    private void setView(){
+        startProgressBar();
+        ConstraintLayout layout = findViewById(R.id.layout_atp);
+        Drawable forg = new ColorDrawable(getResources().getColor(R.color.backgroundLight));
+        forg.setAlpha(175);
+        layout.setForeground(forg);
     }
 
     @Override
