@@ -101,29 +101,35 @@ public class WTAResult extends BaseActivity {
 //        player1_bpFaced, player2_ace, player2_df, player2_svpt, player2_1stIn, player2_1stWon, \
 //        player2_2ndWon, player2_SvGms, player2_bpSaved, player2_bpFaced
 
-        player1_name.setText(get_labels.asList().get(0).toString());
-        player2_name.setText(get_labels.asList().get(1).toString());
-        winner.setText(get_labels.asList().get(2).toString());
-        score.setText(get_labels.asList().get(3).toString());
-        time.setText(get_labels.asList().get(4).toString());
-        player1_ace.setText(get_labels.asList().get(5).toString());
-        player1_df.setText(get_labels.asList().get(6).toString());
-        player1_svpt.setText(get_labels.asList().get(7).toString());
-        player1_1stIn.setText(get_labels.asList().get(8).toString());
-        player1_1stWon.setText(get_labels.asList().get(9).toString());
-        player1_2ndWon.setText(get_labels.asList().get(10).toString());
-        player1_SvGms.setText(get_labels.asList().get(11).toString());
-        player1_bpSaved.setText(get_labels.asList().get(12).toString());
-        player1_bpFaced.setText(get_labels.asList().get(13).toString());
-        player2_ace.setText(get_labels.asList().get(14).toString());
-        player2_df.setText(get_labels.asList().get(15).toString());
-        player2_svpt.setText(get_labels.asList().get(16).toString());
-        player2_1stIn.setText(get_labels.asList().get(17).toString());
-        player2_1stWon.setText(get_labels.asList().get(18).toString());
-        player2_2ndWon.setText(get_labels.asList().get(19).toString());
-        player2_SvGms.setText(get_labels.asList().get(20).toString());
-        player2_bpSaved.setText(get_labels.asList().get(21).toString());
-        player2_bpFaced.setText(get_labels.asList().get(22).toString());
+        if (get_labels.asList().get(0).toString().compareTo(get_labels.asList().get(2).toString()) == 0){
+            player1_name.setText(get_labels.asList().get(0).toString() + " (winner)");
+            player2_name.setText(get_labels.asList().get(1).toString() + " (loser)");
+        }else{
+            player1_name.setText(get_labels.asList().get(0).toString() + " (loser)");
+            player2_name.setText(get_labels.asList().get(1).toString() + " (winner)");
+        }
+
+        winner.setText("Forecast Winner: " + get_labels.asList().get(2).toString());
+        score.setText("Forecast score: " + get_labels.asList().get(4).toString());
+        time.setText("Forcast match time: " + get_labels.asList().get(5).toString());
+        player1_ace.setText(get_labels.asList().get(6).toString());
+        player1_df.setText(get_labels.asList().get(7).toString());
+        player1_svpt.setText(get_labels.asList().get(8).toString());
+        player1_1stIn.setText(get_labels.asList().get(9).toString());
+        player1_1stWon.setText(get_labels.asList().get(10).toString());
+        player1_2ndWon.setText(get_labels.asList().get(11).toString());
+        player1_SvGms.setText(get_labels.asList().get(12).toString());
+        player1_bpSaved.setText(get_labels.asList().get(13).toString());
+        player1_bpFaced.setText(get_labels.asList().get(14).toString());
+        player2_ace.setText(get_labels.asList().get(15).toString());
+        player2_df.setText(get_labels.asList().get(16).toString());
+        player2_svpt.setText(get_labels.asList().get(17).toString());
+        player2_1stIn.setText(get_labels.asList().get(18).toString());
+        player2_1stWon.setText(get_labels.asList().get(19).toString());
+        player2_2ndWon.setText(get_labels.asList().get(20).toString());
+        player2_SvGms.setText(get_labels.asList().get(21).toString());
+        player2_bpSaved.setText(get_labels.asList().get(22).toString());
+        player2_bpFaced.setText(get_labels.asList().get(23).toString());
     }
 
     @Override

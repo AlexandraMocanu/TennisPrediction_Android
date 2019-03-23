@@ -1,10 +1,11 @@
 package com.alexandra.winnerprediction.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -95,7 +96,7 @@ public class WTAPrediction extends BaseActivity {
 
         draw_size = (Spinner) findViewById(R.id.draw_size_s);
         ArrayAdapter<CharSequence> draw_size_adapter = ArrayAdapter.createFromResource(this,
-                R.array.draw_size, R.layout.spinner_item);
+                R.array.draw_size_wta, R.layout.spinner_item);
         draw_size_adapter.setDropDownViewResource(R.layout.spinner_item);
         draw_size.setAdapter(draw_size_adapter);
 
@@ -113,9 +114,23 @@ public class WTAPrediction extends BaseActivity {
             public void onClick(View v) {
                 predict.setPressed(true);
                 setView();
-                call_python();
-                Intent newIntent = new Intent(getBaseContext(), WTAResult.class);
-                startActivity(newIntent);
+
+                String n1 = player1_name.getText().toString();
+                String n2 = player2_name.getText().toString();
+                String tour = tournament.getSelectedItem().toString();
+                String draw = draw_size.getSelectedItem().toString();
+                String surf = surface.getSelectedItem().toString();
+                String best = best_of.getSelectedItem().toString();
+                String p1_hand = player1_hand.getSelectedItem().toString();
+                String p2_hand = player2_hand.getSelectedItem().toString();
+                String p1_rank = player1_rank.getText().toString();
+                String p2_rank = player2_rank.getText().toString();
+                String p1_seed = player1_seed.getText().toString();
+                String p2_seed = player2_seed.getText().toString();
+
+                new CallPython().execute(n1, n2, tour, draw, surf, best,
+                        p1_hand, p2_hand, p1_rank, p2_rank, p1_seed, p2_seed);
+
             }
         });
     }
@@ -155,32 +170,6 @@ public class WTAPrediction extends BaseActivity {
         return  tourneys;
     }
 
-    private void call_python(){
-        if (! Python.isStarted()) {
-            Python.start(new AndroidPlatform(this.getBaseContext()));
-        }
-
-        String n1 = player1_name.getText().toString();
-        String n2 = player2_name.getText().toString();
-        String tour = tournament.getSelectedItem().toString();
-        String draw = draw_size.getSelectedItem().toString();
-        String surf = surface.getSelectedItem().toString();
-        String best = best_of.getSelectedItem().toString();
-        String p1_hand = player1_hand.getSelectedItem().toString();
-        String p2_hand = player2_hand.getSelectedItem().toString();
-        String p1_rank = player1_rank.getText().toString();
-        String p2_rank = player2_rank.getText().toString();
-        String p1_seed = player1_seed.getText().toString();
-        String p2_seed = player2_seed.getText().toString();
-
-        Python python_instance = Python.getInstance();
-        PyObject test_module = python_instance.getModule("predict_p/predict");
-        PyObject set_features = test_module.callAttr("set_features", "WTA",
-                                                            n1, n2,
-                                                            tour, draw, surf, best,
-                                                            p1_hand, p2_hand, p1_rank, p2_rank, p1_seed, p2_seed);
-    }
-
     private void setView(){
         startProgressBar();
         ConstraintLayout layout = findViewById(R.id.layout_wta);
@@ -192,5 +181,44 @@ public class WTAPrediction extends BaseActivity {
     @Override
     public String getActivityName() {
         return "Predict WTA match";
+    }
+
+    private class CallPython extends AsyncTask<String, Void, Void> {
+        protected Void doInBackground(String... features) {
+            if (! Python.isStarted()) {
+                Python.start(new AndroidPlatform(getBaseContext()));
+            }
+
+            String n1 = features[0];
+            String n2 = features[1];
+            String tour = features[2];
+            String draw = features[3];
+            String surf = features[4];
+            String best = features[5];
+            String p1_hand = features[6];
+            String p2_hand = features[7];
+            String p1_rank = features[8];
+            String p2_rank = features[9];
+            String p1_seed = features[10];
+            String p2_seed = features[11];
+
+            Python python_instance = Python.getInstance();
+            PyObject test_module = python_instance.getModule("predict_p/predict");
+            PyObject set_features = test_module.callAttr("set_features", "WTA",
+                    n1, n2,
+                    tour, draw, surf, best,
+                    p1_hand, p2_hand, p1_rank, p2_rank, p1_seed, p2_seed);
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void params) {
+            super.onPostExecute(params);
+
+            Intent intent = new Intent(WTAPrediction.this, WTAResult.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getApplicationContext().startActivity(intent);
+        }
     }
 }

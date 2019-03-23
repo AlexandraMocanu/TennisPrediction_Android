@@ -94,7 +94,7 @@ public class ATPResult extends BaseActivity {
 
         Python python_instance = Python.getInstance();
         PyObject test_module = python_instance.getModule("predict_p/predict");
-        PyObject get_labels = test_module.callAttr("get_labels", "ATP");
+        PyObject get_labels = test_module.callAttr("get_labels_atp");
 
 //        player1_name, player2_name, winner, loser, score, time, player1_ace, player1_df, player1_svpt, \
 //        player1_1stIn, player1_1stWon, player1_2ndWon, player1_SvGms, player1_bpSaved, \
@@ -109,27 +109,27 @@ public class ATPResult extends BaseActivity {
             player2_name.setText(get_labels.asList().get(1).toString() + " (winner)");
         }
 
-        winner.setText(get_labels.asList().get(2).toString());
-        score.setText(get_labels.asList().get(3).toString());
-        time.setText(get_labels.asList().get(4).toString());
-        player1_ace.setText(get_labels.asList().get(5).toString());
-        player1_df.setText(get_labels.asList().get(6).toString());
-        player1_svpt.setText(get_labels.asList().get(7).toString());
-        player1_1stIn.setText(get_labels.asList().get(8).toString());
-        player1_1stWon.setText(get_labels.asList().get(9).toString());
-        player1_2ndWon.setText(get_labels.asList().get(10).toString());
-        player1_SvGms.setText(get_labels.asList().get(11).toString());
-        player1_bpSaved.setText(get_labels.asList().get(12).toString());
-        player1_bpFaced.setText(get_labels.asList().get(13).toString());
-        player2_ace.setText(get_labels.asList().get(14).toString());
-        player2_df.setText(get_labels.asList().get(15).toString());
-        player2_svpt.setText(get_labels.asList().get(16).toString());
-        player2_1stIn.setText(get_labels.asList().get(17).toString());
-        player2_1stWon.setText(get_labels.asList().get(18).toString());
-        player2_2ndWon.setText(get_labels.asList().get(19).toString());
-        player2_SvGms.setText(get_labels.asList().get(20).toString());
-        player2_bpSaved.setText(get_labels.asList().get(21).toString());
-        player2_bpFaced.setText(get_labels.asList().get(22).toString());
+        winner.setText("Forecast Winner: " + get_labels.asList().get(2).toString());
+        score.setText("Forecast score: " + get_labels.asList().get(4).toString());
+        time.setText("Forcast match time: " + get_labels.asList().get(5).toString());
+        player1_ace.setText(get_labels.asList().get(6).toString());
+        player1_df.setText(get_labels.asList().get(7).toString());
+        player1_svpt.setText(get_labels.asList().get(8).toString());
+        player1_1stIn.setText(get_labels.asList().get(9).toString());
+        player1_1stWon.setText(get_labels.asList().get(10).toString());
+        player1_2ndWon.setText(get_labels.asList().get(11).toString());
+        player1_SvGms.setText(get_labels.asList().get(12).toString());
+        player1_bpSaved.setText(get_labels.asList().get(13).toString());
+        player1_bpFaced.setText(get_labels.asList().get(14).toString());
+        player2_ace.setText(get_labels.asList().get(15).toString());
+        player2_df.setText(get_labels.asList().get(16).toString());
+        player2_svpt.setText(get_labels.asList().get(17).toString());
+        player2_1stIn.setText(get_labels.asList().get(18).toString());
+        player2_1stWon.setText(get_labels.asList().get(19).toString());
+        player2_2ndWon.setText(get_labels.asList().get(20).toString());
+        player2_SvGms.setText(get_labels.asList().get(21).toString());
+        player2_bpSaved.setText(get_labels.asList().get(22).toString());
+        player2_bpFaced.setText(get_labels.asList().get(23).toString());
     }
 
     @Override

@@ -154,7 +154,7 @@
         <item>Both</item>
     </string-array>
 
-    <string-array name="draw_size">
+    <string-array name="draw_size_wta">
         <item>Don\'t know</item>
         <item>draw_size_4</item>
         <item>draw_size_8</item>
@@ -173,6 +173,26 @@
         <item>draw_size_64</item>
         <item>draw_size_96</item>
         <item>draw_size_128</item>
+    </string-array>
+
+    <string-array name="draw_size_atp">
+        <item>draw_size_0</item>
+        <item>draw_size_10</item>
+        <item>draw_size_12</item>
+        <item>draw_size_128</item>
+        <item>draw_size_16</item>
+        <item>draw_size_24</item>
+        <item>draw_size_28</item>
+        <item>draw_size_32</item>
+        <item>draw_size_4</item>
+        <item>draw_size_48</item>
+        <item>draw_size_56</item>
+        <item>draw_size_6</item>
+        <item>draw_size_64</item>
+        <item>draw_size_7</item>
+        <item>draw_size_8</item>
+        <item>draw_size_9</item>
+        <item>draw_size_96</item>
     </string-array>
 
     <string-array name="surface">

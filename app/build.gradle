@@ -14,7 +14,8 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         python {
-            buildPython "C:\\Users\\amocanu\\AppData\\Local\\Continuum\\anaconda3\\envs\\keras\\python.exe"
+//            buildPython "C:\\Users\\amocanu\\AppData\\Local\\Continuum\\anaconda3\\envs\\keras\\python.exe"
+            buildPython "C:\\Users\\Alexandra\\Anaconda3\\envs\\diploma\\python.exe"
 
             extractPackages "predict_p", "models"
 
